@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#0d2039">
+  <meta name="description" content="An independent product-rules study: does returning a substation key require a new approval?">
+  <title>Key Reissue — Access Decision Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--ink:#182536;--navy:#102b4d;--blue:#2868bd;--blue-tint:#edf4fd;--muted:#586a7e;--soft:#7a8997;--canvas:#f8f9fb;--surface:#fff;--border:#dce3eb;--line:#e8edf2;--good:#177154;--good-bg:#e8f5ef;--warn:#966118;--warn-bg:#fff3df;--bad:#ae3e43;--bad-bg:#fff0ee;--hold:#426887;--hold-bg:#eaf2f9}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--canvas);color:var(--ink);font:14px/1.55 'DM Sans',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.43;cursor:not-allowed}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #91b8ed;outline-offset:3px}a{color:inherit}h1,h2,h3,p{margin:0}h2{font-size:22px;line-height:1.25;font-weight:700;letter-spacing:-.65px}h3{font-size:15px;font-weight:700}small{font-size:12px}[v-cloak]{display:none!important}.mono{font-family:'IBM Plex Mono',ui-monospace,monospace}.page-wrap{max-width:1150px;margin:0 auto;padding:0 28px}.site-header{background:#fff;border-bottom:1px solid var(--border)}.header-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:18px}.wordmark{font-size:16px;font-weight:700;letter-spacing:-.65px;color:var(--navy);text-decoration:none;display:inline-flex;align-items:center;gap:11px}.wordmark-sign{width:24px;height:24px;border:2px solid var(--blue);display:flex;align-items:center;justify-content:center;border-radius:3px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--blue)}.wordmark small{font-size:11px;color:var(--muted);font-weight:500;letter-spacing:0;margin-left:4px}.header-right{color:#6a7683;font-size:11px;letter-spacing:.04em}.hero{padding-top:48px}.eyebrow{color:var(--blue);font:600 11px 'IBM Plex Mono',monospace;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(29px,4.1vw,52px);font-weight:700;letter-spacing:-1.9px;line-height:1.14;max-width:850px;color:#15253a;margin:12px 0 29px}.hero-grid{display:grid;grid-template-columns:minmax(0,1.28fr) minmax(330px,.82fr);gap:20px;align-items:stretch}.answer{background:#fff;border:1px solid #ccd9e8;border-top:4px solid var(--blue);padding:27px 29px 27px;min-height:273px}.answer-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.mini-label{text-transform:uppercase;letter-spacing:.1em;font:600 10px 'IBM Plex Mono',monospace;color:#7a8693}.status{font:600 11px 'DM Sans',sans-serif;border-radius:3px;padding:5px 8px;background:var(--good-bg);color:var(--good);white-space:nowrap}.status-approval{background:var(--warn-bg);color:var(--warn)}.status-hold{background:var(--hold-bg);color:var(--hold)}.status-blocked{background:var(--bad-bg);color:var(--bad)}.answer h2{font-size:clamp(26px,3vw,38px);letter-spacing:-1.4px;line-height:1.15;margin:21px 0 12px;color:#132844}.answer-copy{max-width:565px;font-size:15px;line-height:1.65;color:#435369}.insight{border-top:1px solid var(--line);padding-top:16px;margin-top:21px;display:flex;gap:10px;color:#1d477b;font-size:13px;font-weight:600}.insight i{font-size:14px;margin-top:4px}.case-card{background:#f0f4f8;border:1px solid #d9e1e9;padding:23px 25px 21px;display:flex;flex-direction:column;min-height:273px}.case-card .head{display:flex;justify-content:space-between;gap:10px}.case-card .head span:last-child{font-size:11px;color:#68809b}.case-person{font-size:21px;font-weight:700;line-height:1.2;letter-spacing:-.6px;margin:15px 0 3px}.case-place{color:var(--muted);font-size:13px}.case-fields{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin:20px 0 0;padding-top:15px;border-top:1px solid #d7e0eb}.case-fields dt{color:#718196;font-size:11px;margin-bottom:3px}.case-fields dd{margin:0;font-size:13px;color:#1a2e46;font-weight:600}.case-foot{margin-top:auto;padding-top:14px;color:#647386;font-size:12px;display:flex;gap:8px;align-items:center}.case-foot i{color:#5985b5}.section{padding-top:43px}.section-intro{color:var(--muted);margin-top:8px;font-size:13px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:18px}.section-head .section-intro{max-width:530px}.micro-btn{background:#fff;border:1px solid var(--border);color:#314a69;padding:8px 11px;font-size:12px;border-radius:3px;display:flex;align-items:center;gap:9px;font-weight:600}.micro-btn:hover{border-color:#8eb3e0}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}.chip{border:1px solid #d4dee9;background:#fff;border-radius:3px;min-height:35px;padding:7px 12px;color:#3b506a;font-size:12px;font-weight:600;white-space:nowrap}.chip:hover{border-color:#8db0dc}.chip.active{background:#153a65;color:#fff;border-color:#153a65}.chip i{font-size:10px;margin-right:6px}.change-bar{font-size:12px;color:#566a7f;margin-top:13px;padding-left:1px}.change-bar strong{color:#1a3c6a}.expand{margin-top:19px;border:1px solid var(--border);background:#fff}.expand summary{list-style:none;padding:13px 17px;font-weight:600;display:flex;align-items:center;gap:10px;font-size:13px;cursor:pointer}.expand summary::-webkit-details-marker{display:none}.expand summary .arrow{margin-left:auto;transition:transform .18s}.expand[open] summary .arrow{transform:rotate(180deg)}.expand .body{border-top:1px solid var(--line);padding:18px}.advanced-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}.control label{font-size:11px;font-weight:600;color:#52627a;display:block;margin-bottom:6px}.control input,.control select{height:37px;background:white;border:1px solid #cdd9e5;border-radius:3px;width:100%;padding:0 9px;font-size:12px;color:var(--ink);min-width:0}.controls-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px 18px;margin-top:19px;padding-top:17px;border-top:1px solid var(--line)}.check-control{display:flex;align-items:flex-start;gap:9px;color:#30465e;font-size:12px}.check-control input{accent-color:var(--blue);margin-top:4px}.gates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}.gate{background:#fff;border:1px solid var(--border);padding:19px 19px 14px;min-width:0}.gate-head{display:flex;align-items:flex-start;gap:10px;min-height:52px;border-bottom:1px solid var(--line);padding-bottom:13px}.gate-number{color:var(--blue);font:600 11px 'IBM Plex Mono',monospace;padding-top:2px}.gate-title{flex:1;min-width:0}.gate-name{font-size:15px;font-weight:700;letter-spacing:-.2px}.gate-sub{color:var(--soft);font-size:11px;margin-top:2px}.gate-status{font-size:12px;font-weight:700;color:var(--good)}.gate-status.fail{color:var(--bad)}.gate-status.skip{color:var(--soft)}.gate-lines{padding-top:10px}.gate-row{display:flex;align-items:flex-start;gap:9px;padding:8px 0;font-size:12px;line-height:1.45;color:#42546a}.gate-row i{width:13px;text-align:center;margin-top:2px;color:var(--good);font-size:11px}.gate-row.fail{font-weight:600;color:#853d3f}.gate-row.fail i{color:var(--bad)}.gate-row.skip{color:#8792a0}.gate-row.skip i{color:#9ba7b4}.gate-note{color:#6b7785;font-size:11px;margin:9px 0 0;line-height:1.5}.comparison{border:1px solid var(--border);background:#fff}.compare-row{display:grid;grid-template-columns: minmax(170px,1.25fr) minmax(160px,2.5fr) minmax(110px,1fr);gap:15px;padding:12px 19px;border-bottom:1px solid var(--line);align-items:center;font-size:12px}.compare-row:last-child{border-bottom:0}.compare-row.head{background:#f0f4f8;color:#62748b;font:600 10px 'IBM Plex Mono',monospace;letter-spacing:.07em;text-transform:uppercase}.compare-row .scenario-name{font-weight:700;color:#283c55}.compare-row .consequence{font-weight:700;color:#273a52;text-align:right}.consequence .dot{width:6px;height:6px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:middle;background:var(--warn)}.consequence.blocked .dot{background:var(--bad)}.consequence.hold .dot{background:var(--hold)}.consequence.eligible .dot{background:var(--good)}.spec{border:1px solid var(--border);background:#fff}.spec-header{background:#eff3f8;padding:17px 21px;display:flex;align-items:center;justify-content:space-between;gap:18px;border-bottom:1px solid var(--border)}.spec-header .rule-id{font:600 11px 'IBM Plex Mono',monospace;color:#2c5d92;letter-spacing:.03em}.spec-header p{font-size:12px;color:#53677d;margin-top:4px}.primary-btn{background:#2366b6;border:1px solid #2366b6;padding:11px 15px;color:white;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-size:12px;font-weight:700;white-space:nowrap}.primary-btn:hover{background:#194f91}.spec pre{white-space:pre-wrap;overflow-wrap:anywhere;margin:0;padding:22px 24px;color:#273a50;font:12px/1.85 'IBM Plex Mono',ui-monospace,monospace;max-height:520px;overflow:auto;background:#fff}.spec-foot{padding:13px 23px;border-top:1px solid var(--line);color:#697a8c;font-size:11px}.test-bar{border:1px solid var(--border);padding:15px 18px;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:16px}.test-bar .test-score{font-size:12px;font-weight:700;color:var(--good)}.test-bar .test-score.failure{color:var(--bad)}.test-bar span{font-size:12px;color:var(--muted)}.test-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.test-item{border:1px solid var(--line);padding:11px;background:#fafbfc;font-size:12px}.test-item strong{display:block;font-size:12px;margin:4px 0 4px}.test-item span{color:#667789;font-size:11px}.test-item .pass{color:var(--good);font-weight:700}.test-item .failed{color:var(--bad);font-weight:700}.small-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px;align-items:center}.quiet-btn{border:1px solid #cbd8e5;background:#fff;border-radius:3px;color:#284968;padding:9px 12px;font-size:12px;font-weight:600}.quiet-btn:hover{background:#f4f8fd}.activity{padding:16px 0 0;margin-top:18px;border-top:1px solid var(--line)}.activity-row{display:flex;align-items:flex-start;gap:12px;padding:9px 0;font-size:12px}.activity-row i{width:14px;color:#6d86a4;position:relative;top:3px}.activity-row strong{color:#30455c}.activity-row small{display:block;color:#83909f;font-size:10px;margin-top:2px}.footer{margin-top:61px;border-top:1px solid var(--border);padding:21px 0 31px;color:#738297;font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.toast{position:fixed;bottom:22px;right:22px;z-index:50;background:#172c48;color:#fff;padding:11px 15px;border-radius:3px;box-shadow:0 10px 35px #152c4430;font-size:12px;max-width:calc(100vw - 44px)}
+    @media(max-width:900px){.hero-grid{grid-template-columns:minmax(0,1fr)}.answer,.case-card{min-height:0}.case-card{padding:20px 23px}.gates{grid-template-columns:1fr}.gate{padding:17px 19px}.gate-head{min-height:0}.advanced-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.controls-list{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:640px){.page-wrap{padding:0 17px}.header-inner{height:61px}.header-right{display:none}.hero{padding-top:34px}.hero h1{font-size:33px;letter-spacing:-1.3px;margin:10px 0 20px}.answer{padding:22px 20px 21px}.answer h2{font-size:30px}.answer-copy{font-size:14px}.insight{font-size:12px}.case-card{padding:18px 19px}.section{padding-top:34px}.section-head{align-items:flex-start;gap:9px}.section-head h2{font-size:20px}.section-head .micro-btn{flex-shrink:0}.chips{flex-wrap:nowrap;overflow:auto;margin-right:-17px;padding:2px 17px 7px 0;scrollbar-width:thin}.chip{flex:0 0 auto}.advanced-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.controls-list{grid-template-columns:1fr;gap:10px}.compare-row{grid-template-columns:minmax(128px,1.1fr) minmax(115px,.85fr);gap:10px;padding:13px 14px}.compare-row.head{display:none}.compare-row .detail{grid-column:1/-1;grid-row:2;color:#6c7b8d;font-size:11px}.compare-row .consequence{align-self:start}.spec-header{padding:14px 16px;flex-wrap:wrap}.spec pre{padding:15px 16px;font-size:11px}.spec-foot{padding:12px 16px}.test-list{grid-template-columns:1fr}.footer{margin-top:43px}.footer-inner{display:block}.footer-inner span{display:block;margin-bottom:6px}.test-bar{align-items:flex-start}.test-bar span{flex:1}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+</head>
+<body>
+<div id="app" v-cloak>
+  <header class="site-header"><div class="page-wrap header-inner">
+    <div class="wordmark"><span class="wordmark-sign" aria-hidden="true">A/</span><span>access decision <small>/ lab</small></span></div>
+    <span class="header-right">PRODUCT RULE STUDY &nbsp;·&nbsp; KEY REISSUE</span>
+  </div></header>
+  <main class="page-wrap">
+    <section class="hero" aria-labelledby="main-title">
+      <p class="eyebrow">The substation case / 01</p>
+      <h1 id="main-title">Does Monday need a new approval?</h1>
+      <div class="hero-grid">
+        <article class="answer" aria-live="polite">
+          <div class="answer-top"><span class="mini-label">The decision</span><span class="status" :class="'status-'+decision.status">{{statusLabel}}</span></div>
+          <h2>{{headline}}</h2>
+          <p class="answer-copy">{{answerCopy}}</p>
+          <div class="insight"><i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i><span>{{nextAction}}</span></div>
+        </article>
+        <aside class="case-card" aria-label="Case details">
+          <div class="head"><span class="mini-label">Request / KEY-014</span><span>Sample case</span></div>
+          <div class="case-person">{{form.contractor || 'Unnamed contractor'}}</div>
+          <div class="case-place">{{form.site || 'Site not specified'}} · Substation access key</div>
+          <dl class="case-fields">
+            <div><dt>Approval window</dt><dd>{{shortDate(form.approvalStart)}} – {{shortDate(form.approvalEnd)}}</dd></div>
+            <div><dt>Requested again</dt><dd>{{longDate(form.requestDate)}}</dd></div>
+            <div><dt>Last key movement</dt><dd>{{lastMovement}}</dd></div>
+            <div><dt>Visit policy</dt><dd>{{form.sitePolicy === 'standing' ? 'Repeat visits allowed' : 'Approve each visit'}}</dd></div>
+          </dl>
+          <div class="case-foot"><i class="fa-solid fa-key" aria-hidden="true"></i><span>Key custody is separate from access authorisation.</span></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="changes-title">
+      <div class="section-head"><div><h2 id="changes-title">Change one condition.</h2><p class="section-intro">See exactly when the answer changes. These are test fixtures, not real access requests.</p></div><button class="micro-btn" type="button" @click="resetAll"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Reset</button></div>
+      <div class="chips" role="group" aria-label="Example scenarios"><button v-for="s in scenarios" :key="s.id" class="chip" type="button" :class="{active: selectedScenario === s.id}" :aria-pressed="selectedScenario === s.id" @click="loadScenario(s)"><i v-if="selectedScenario === s.id" class="fa-solid fa-check" aria-hidden="true"></i>{{s.chip}}</button></div>
+      <p class="change-bar" aria-live="polite">{{selectedScenario === 'CUSTOM' ? 'Custom inputs' : activeScenario.name}} <template v-if="selectedScenario !== 'T01'"> · <strong>{{diffSummary}}</strong></template></p>
+      <details class="expand" id="advanced"><summary><i class="fa-solid fa-sliders" aria-hidden="true"></i> Advanced / edit the request <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i></summary><div class="body">
+        <div class="advanced-grid">
+          <div class="control"><label for="contractor">Contractor</label><input id="contractor" v-model.trim="form.contractor" autocomplete="off"></div>
+          <div class="control"><label for="site">Site</label><input id="site" v-model.trim="form.site" autocomplete="off"></div>
+          <div class="control"><label for="start">Approval starts</label><input type="date" id="start" v-model="form.approvalStart"></div>
+          <div class="control"><label for="end">Approval expires</label><input type="date" id="end" v-model="form.approvalEnd"></div>
+          <div class="control"><label for="requested">New checkout date</label><input type="date" id="requested" v-model="form.requestDate"></div>
+          <div class="control"><label for="personstatus">Contractor status</label><select id="personstatus" v-model="form.personStatus"><option value="active">Active</option><option value="inactive">Inactive / offboarded</option></select></div>
+          <div class="control"><label for="approvalstatus">Access approval</label><select id="approvalstatus" v-model="form.approvalStatus"><option value="active">Active</option><option value="revoked">Revoked / suspended</option></select></div>
+          <div class="control"><label for="approvaltype">Approval type</label><select id="approvaltype" v-model="form.approvalType"><option value="multiple">Multiple visits</option><option value="single">Single use</option></select></div>
+          <div class="control"><label for="sitepolicy">Site policy</label><select id="sitepolicy" v-model="form.sitePolicy"><option value="standing">May reuse approval</option><option value="per_visit">Approve each visit</option></select></div>
+        </div>
+        <div class="controls-list">
+          <label class="check-control"><input type="checkbox" v-model="form.sameArea"> Same approved area</label>
+          <label class="check-control"><input type="checkbox" v-model="form.sameWork"> Same work purpose</label>
+          <label class="check-control"><input type="checkbox" v-model="form.visitConsumed"> Previous visit consumed a single-use approval</label>
+          <label class="check-control"><input type="checkbox" v-model="form.identityVerified"> Identity verified at handover</label>
+          <label class="check-control"><input type="checkbox" v-model="form.protectedArea"> Protected area approval required</label>
+          <label class="check-control"><input type="checkbox" v-model="form.protectedApproved"> Protected area approval valid</label>
+          <label class="check-control"><input type="checkbox" v-model="form.permitRequired"> Permit-to-work required</label>
+          <label class="check-control"><input type="checkbox" v-model="form.permitValid"> Work permit valid</label>
+          <label class="check-control"><input type="checkbox" v-model="form.previousReturned"> Previous checkout closed</label>
+          <label class="check-control"><input type="checkbox" v-model="form.keyAvailable"> Physical key available</label>
+        </div>
+        <div class="small-actions"><button class="quiet-btn" type="button" :disabled="decision.status !== 'eligible'" @click="simulateIssue"><i class="fa-solid fa-key" aria-hidden="true"></i> Simulate issue</button><button class="quiet-btn" type="button" :disabled="form.previousReturned" @click="simulateReturn"><i class="fa-solid fa-arrow-rotate-left" aria-hidden="true"></i> Simulate return</button><button class="quiet-btn" type="button" @click="exportLog"><i class="fa-solid fa-file-export" aria-hidden="true"></i> Export local history</button></div>
+        <div class="activity" v-if="activity.length"><p class="mini-label">Example custody history / newest first</p><div class="activity-row" v-for="event in activity.slice(0,5)" :key="event.id"><i :class="event.icon" aria-hidden="true"></i><div><strong>{{event.title}}</strong><small>{{event.at}}</small></div></div></div>
+      </div></details>
+    </section>
+
+    <section class="section" aria-labelledby="gates-title"><div class="section-head"><div><h2 id="gates-title">Three checks before the key moves.</h2><p class="section-intro">Approval, safety clearance and key custody are different records. One failure can stop the handover.</p></div></div>
+      <div class="gates"><article class="gate" v-for="g in gates" :key="g.id"><div class="gate-head"><span class="gate-number">{{g.number}}</span><div class="gate-title"><div class="gate-name">{{g.name}}</div><div class="gate-sub">{{g.subtitle}}</div></div><div class="gate-status" :class="{fail:g.failed}">{{g.failed ? 'Check' : 'Pass'}}</div></div><div class="gate-lines"><div class="gate-row" :class="r.state" v-for="r in g.rows" :key="r.label"><i :class="r.state === 'fail' ? 'fa-solid fa-xmark' : r.state === 'skip' ? 'fa-solid fa-minus' : 'fa-solid fa-check'" aria-hidden="true"></i><span>{{r.label}}</span></div></div><p v-if="g.failed" class="gate-note">{{g.note}}</p></article></div>
+    </section>
+
+    <section class="section" aria-labelledby="counter-title"><div class="section-head"><div><h2 id="counter-title">When the answer changes.</h2><p class="section-intro">These results are calculated from the same rules as the main decision.</p></div></div><div class="comparison" role="table" aria-label="Outcomes if conditions change"><div class="compare-row head" role="row"><span>Changed condition</span><span>Why it matters</span><span style="text-align:right">Outcome</span></div><div class="compare-row" role="row" v-for="s in exceptions" :key="s.id"><div class="scenario-name">{{s.name}}</div><div class="detail">{{s.tableDetail}}</div><div class="consequence" :class="s.outcome"><span class="dot"></span>{{shortOutcome(s.outcome)}}</div></div></div></section>
+
+    <section class="section" aria-labelledby="rule-title"><div class="section-head"><div><h2 id="rule-title">The rule to write down.</h2><p class="section-intro">A reusable requirement for engineers and AI coding agents—not just a summary of this screen.</p></div></div><div class="spec"><div class="spec-header"><div><div class="rule-id">KEY-REISSUE-01 &nbsp; / &nbsp; Product knowledge base</div><p>Reissuing a key after return</p></div><button class="primary-btn" @click="copyRule" type="button"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copy the rule</button></div><pre>{{ruleSpec}}</pre><div class="spec-foot">Decision policy is explicit and testable. No AI model is used to approve or deny access.</div></div>
+      <div class="test-bar"><div><strong>Acceptance tests</strong> <span>· Run against the rule engine on page load</span></div><span class="test-score" :class="{failure:testPasses!==tests.length}">{{testPasses}}/{{tests.length}} pass</span></div>
+      <details class="expand" style="margin-top:0;border-top:0"><summary><i class="fa-solid fa-list-check" aria-hidden="true"></i> View test cases <i class="fa-solid fa-chevron-down arrow" aria-hidden="true"></i></summary><div class="body test-list"><div class="test-item" v-for="t in tests" :key="t.id"><span class="mono">{{t.id}} · {{t.expected}}</span><strong>{{t.name}}</strong><div :class="t.pass ? 'pass':'failed'"><i :class="t.pass ? 'fa-solid fa-check':'fa-solid fa-xmark'" aria-hidden="true"></i> {{t.pass ? 'PASS' : 'FAIL · actual '+t.actual}}</div></div></div></details>
+    </section>
+  </main>
+  <footer class="footer"><div class="page-wrap footer-inner"><span>Independent concept prototype. Sample data only; not a real access-control system or affiliated with portier.</span><span>Vue 3 · Tailwind CDN · Font Awesome · Single HTML</span></div></footer>
+  <div v-if="toast" class="toast" role="status" aria-live="polite"><i class="fa-solid fa-check" aria-hidden="true"></i> {{toast}}</div>
+</div>
+
+<!-- Pure decision evaluator inserted below. It can be executed without Vue. -->
+<script id="decision-engine">
+// Pure, deterministic policy evaluation. This block can be tested independently of Vue.
+function evaluateAccess(s) {
+  const rules = [];
+  const add = (id, label, state, detail, consequence) => rules.push({id, label, state, detail, consequence: state === 'fail' ? consequence : null});
+  const check = (id, label, valid, ok, fail, consequence) => add(id, label, valid ? 'pass' : 'fail', valid ? ok : fail, consequence);
+  const hasDates = Boolean(s.approvalStart && s.approvalEnd && s.requestDate);
+  const validRange = hasDates && s.approvalStart <= s.approvalEnd;
+  const withinWindow = validRange && s.requestDate >= s.approvalStart && s.requestDate <= s.approvalEnd;
+  check('subject','Request identifies person and site',Boolean((s.contractor || '').trim() && (s.site || '').trim()),'Contractor and facility are identified.','Contractor name or facility is missing.','hold');
+  check('contractor','Contractor remains active',s.personStatus === 'active','Contractor is eligible to request access.','Contractor is inactive or offboarded.','blocked');
+  check('authorisation','Access authorisation is active',s.approvalStatus === 'active','Original authorisation has not been revoked or suspended.','Original authorisation is revoked or suspended.','blocked');
+  add('dates','Requested visit is within approval dates',!hasDates || !validRange ? 'fail' : withinWindow ? 'pass' : 'fail',!hasDates ? 'An approval start, expiry, and requested date are required.' : !validRange ? 'Approval start is later than its expiry date.' : withinWindow ? 'Requested checkout falls within the approved window.' : 'Requested checkout falls outside the approved window.',!hasDates || !validRange ? 'hold' : 'approval');
+  check('area','Requested area is in scope',s.sameArea,'Requested key covers the same approved area.','Requested area is outside the original approval.','approval');
+  check('work','Work purpose is in scope',s.sameWork,'The requested work matches the original purpose.','Work purpose has changed.','approval');
+  add('reuse','Original approval allows another visit',s.approvalType === 'multiple' ? 'pass' : s.visitConsumed ? 'fail' : 'pass',s.approvalType === 'multiple' ? 'Multiple visits permitted by the approval.' : s.visitConsumed ? 'Single-use authorisation has already been consumed.' : 'Single-use authorisation has not been consumed.','approval');
+  check('sitepolicy','Site permits approval reuse',s.sitePolicy === 'standing','Site accepts repeat visits within existing approval.','Site requires a new approval for every visit.','approval');
+  check('identity','Identity checked at handover',s.identityVerified,'Identity has been verified by the operator.','Identity has not been verified.','hold');
+  add('protected','Additional protected-area approval',!s.protectedArea ? 'skip' : s.protectedApproved ? 'pass' : 'fail',!s.protectedArea ? 'Not required at this location.' : s.protectedApproved ? 'Required area-specific approval is valid.' : 'Protected-area approval is missing or invalid.','approval');
+  add('permit','Permit-to-work clearance',!s.permitRequired ? 'skip' : s.permitValid ? 'pass' : 'fail',!s.permitRequired ? 'No permit-to-work required for this visit.' : s.permitValid ? 'Required work permit has been verified.' : 'Required permit-to-work is missing or invalid.','hold');
+  check('return','Previous key checkout is closed',s.previousReturned,'Prior key issue has a recorded return.','Prior key checkout is still open.','blocked');
+  check('key','Requested key is available',s.keyAvailable,'Key is present and can be issued.','Key is unavailable for a new handover.','blocked');
+  const failures = rules.filter(r => r.state === 'fail');
+  const rank = ['blocked', 'hold', 'approval'];
+  const status = rank.find(v => failures.some(r => r.consequence === v)) || 'eligible';
+  const choices = {
+    eligible: {title:'Eligible for reissue',icon:'fa-solid fa-check',description:'A new access approval is not required under the entered conditions. The operator may proceed with a separately recorded key handover.',explanation:'The original access authority remains valid; Friday’s return only closed the previous custody record.'},
+    approval: {title:'New approval required',icon:'fa-solid fa-file-signature',description:'The existing authorisation does not sufficiently cover this request. Obtain the missing or renewed approval before any handover.',explanation:'Approval scope, expiry, visit frequency or site-specific authorisation prevents reusing the existing approval.'},
+    hold: {title:'Hold for verification',icon:'fa-solid fa-circle-pause',description:'Do not issue the key until the missing identity, date or safety clearance has been checked and resolved.',explanation:'An unresolved prerequisite is not evidence of valid authorisation. The desk operator must verify it first.'},
+    blocked: {title:'Checkout blocked',icon:'fa-solid fa-lock',description:'The request cannot proceed in its current state. Resolve the inactive or revoked access, open checkout, or unavailable key.',explanation:'A hard stop applies even if other aspects of the original approval are valid.'}
+  };
+  return {status, ...choices[status], rules, passed: rules.filter(r => r.state === 'pass').length, failed:failures.length, skipped:rules.filter(r => r.state === 'skip').length, applicable:rules.filter(r => r.state !== 'skip').length, failures: failures.map(r => ({code:r.id, reason:r.detail, consequence:r.consequence}))};
+}
+</script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.prod.js"></script>
+<script id="app-script">
+(() => {
+  const { createApp, reactive, ref, computed, watch } = Vue;
+  const base = {
+    contractor:'Daniel Weber',site:'North Substation',approvalStart:'2026-10-01',approvalEnd:'2026-12-31',requestDate:'2026-11-02',
+    personStatus:'active',approvalStatus:'active',approvalType:'multiple',sitePolicy:'standing',sameArea:true,sameWork:true,visitConsumed:true,
+    identityVerified:true,protectedArea:false,protectedApproved:false,permitRequired:false,permitValid:false,previousReturned:true,keyAvailable:true
+  };
+  const scenarios = [
+    {id:'T01',name:'Original Monday request',chip:'Original case',expected:'eligible',changes:{},tableDetail:'Approval is valid and the Friday checkout is closed.'},
+    {id:'T02',name:'Expired approval',chip:'Expired',expected:'approval',changes:{approvalEnd:'2026-10-31'},tableDetail:'Monday falls outside the approved dates.'},
+    {id:'T03',name:'Access revoked',chip:'Revoked',expected:'blocked',changes:{approvalStatus:'revoked'},tableDetail:'The permission has been withdrawn.'},
+    {id:'T04',name:'Approval needed per visit',chip:'Per-visit site',expected:'approval',changes:{sitePolicy:'per_visit'},tableDetail:'This site approves each visit separately.'},
+    {id:'T05',name:'Changed work area',chip:'Different area',expected:'approval',changes:{sameArea:false},tableDetail:'The requested area was not approved.'},
+    {id:'T06',name:'Missing work permit',chip:'Permit missing',expected:'hold',changes:{permitRequired:true,permitValid:false},tableDetail:'Safety clearance must be verified first.'},
+    {id:'T07',name:'Checkout still open',chip:'Key not returned',expected:'blocked',changes:{previousReturned:false,keyAvailable:false},tableDetail:'The previous custody record is still open.'},
+    {id:'T08',name:'Protected area',chip:'Protected area',expected:'approval',changes:{protectedArea:true,protectedApproved:false},tableDetail:'The room owner has not approved this access.'},
+    {id:'T09',name:'Single-use approval used',chip:'Single-use',expected:'approval',changes:{approvalType:'single',visitConsumed:true},tableDetail:'The one authorised visit has been used.'}
+  ];
+  const gateConfig = [
+    {id:'authority',number:'01',name:'Access authority',subtitle:'Is this visit approved?',groups:[
+      {label:'Person and authorisation are active',ids:['subject','contractor','authorisation']},
+      {label:'Requested date is within the approval',ids:['dates']},
+      {label:'Same approved area and work',ids:['area','work']},
+      {label:'Approval and site allow this visit',ids:['reuse','sitepolicy']} ]},
+    {id:'clearance',number:'02',name:'Operational clearance',subtitle:'Can the desk release it?',groups:[
+      {label:'Identity verified',ids:['identity']},
+      {label:'Protected-area approval',ids:['protected']},
+      {label:'Work permit',ids:['permit']}]},
+    {id:'custody',number:'03',name:'Key custody',subtitle:'Is the key ready to move?',groups:[
+      {label:'Previous checkout is closed',ids:['return']},
+      {label:'Physical key is available',ids:['key']} ]}
+  ];
+  let eventId=0;
+  function seededActivity(s){
+    const open = !!(s.changes && s.changes.previousReturned === false);
+    return [
+      ...(!open ? [{id:++eventId,title:'Key returned',at:'30 OCT 2026 · 17:42 · SAMPLE',icon:'fa-solid fa-arrow-rotate-left'}] : []),
+      {id:++eventId,title:'Key issued',at:'30 OCT 2026 · 08:12 · SAMPLE',icon:'fa-solid fa-key'},
+      {id:++eventId,title:'Access approved',at:'01 OCT 2026 · 09:15 · SAMPLE',icon:'fa-solid fa-shield-halved'}
+    ];
+  }
+  function shortDate(s){if(!s)return 'Not set';const d=new Date(s+'T12:00:00');return Number.isNaN(d.valueOf())?'Invalid':d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});}
+  function longDate(s){if(!s)return 'Not set';const d=new Date(s+'T12:00:00');return Number.isNaN(d.valueOf())?'Invalid':d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'});}
+  function stamp(){return new Date().toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit',hour12:false}).toUpperCase()+' · SIMULATED';}
+  function briefOutcome(o){return {eligible:'No new approval',approval:'New approval',hold:'Hold',blocked:'Blocked'}[o]||o;}
+  const spec = `KEY-REISSUE-01  |  Reissuing a key after return
+
+Purpose
+Do not make contractors repeat an approval that still covers their work. Never issue a key without checking the current authority and handover conditions.
+
+Definitions
+Access authorisation = permission for a person to access a site/area for an approved purpose and period.
+Key custody = a separate issue/return record for a physical key.
+Returning a key closes custody. It does not revoke access authorisation.
+
+Given a contractor requests a key again:
+1. Check that the person is active and the authorisation is not revoked.
+2. Check the requested date, area and work against the approved scope.
+3. Check whether the approval is reusable and whether the site requires approval for each visit.
+4. Check identity, any protected-area approval and the permit-to-work, if required.
+5. Check that the previous checkout is closed and the requested key is available.
+
+Then
+- If all applicable checks pass: no new access approval is needed. Allow a new key issue, with a separate custody record identifying the person, key, issuing operator and timestamp.
+- If the approval expired, the work/area changed, a single-use approval was consumed, or site policy requires a per-visit decision: obtain new or additional approval before issue.
+- If identity or a required work permit is unverified: hold the handover until verified.
+- If access is revoked/inactive, the earlier checkout remains open, or the key is unavailable: block the issue.
+- If more than one condition fails, the display priority is Blocked > Hold > New approval > Eligible. Show every failed check, not only the highest-priority one.
+
+Acceptance criteria
+AC1 Returning a key closes its custody record without changing the authorisation status.
+AC2 Valid reusable approval + closed custody + all clearance checks -> eligible for a new issue.
+AC3 Expired or single-use-consumed approval -> new approval required.
+AC4 Revoked authorisation -> blocked regardless of other passing conditions.
+AC5 Missing permit-to-work -> hold, even if access approval is valid.
+AC6 Open previous checkout or unavailable key -> blocked.
+AC7 Every simulated issue/return produces a new custody event; approval records are unchanged by returns.
+AC8 Key issue must not be offered while the decision is not eligible.
+
+Assumptions to confirm with the customer
+Whether an approval covers repeat visits, whether the site imposes a per-visit decision, and whether protected-area approval or a permit-to-work is required. Never infer these from an expiry date alone.`;
+  createApp({
+    setup(){
+      const form=reactive({...base});
+      const selectedScenario=ref('T01');
+      const activity=ref(seededActivity(scenarios[0]));
+      const toast=ref('');let toastTimer=null,loading=false;
+      watch(form,()=>{if(!loading)selectedScenario.value='CUSTOM';},{deep:true,flush:'sync'});
+      const decision=computed(()=>evaluateAccess(form));
+      const activeScenario=computed(()=>scenarios.find(s=>s.id===selectedScenario.value)||{name:'Edited request',changes:{}});
+      const headline=computed(()=>({eligible:'No new approval needed.',approval:'A new approval is needed.',hold:'Do not issue it yet.',blocked:'Do not issue this key.'})[decision.value.status]);
+      const statusLabel=computed(()=>({eligible:'Eligible',approval:'New approval',hold:'Verification needed',blocked:'Blocked'})[decision.value.status]);
+      const answerCopy=computed(()=>{
+        if(decision.value.status==='eligible')return 'The existing approval covers this person, site, work and date. Returning the key on Friday closed the old checkout—not the permission to access the site.';
+        const failures=decision.value.failures;
+        const primary=failures.find(f=>f.consequence===decision.value.status)||failures[0];
+        if(decision.value.status==='approval')return (primary ? primary.reason+' ' : '')+'The existing approval cannot be reused for this handover.';
+        if(decision.value.status==='hold')return (primary ? primary.reason+' ' : '')+'The desk needs this checked before it releases the key.';
+        return (primary?primary.reason+' ':'')+'The request must not proceed in its current state.';
+      });
+      const nextAction=computed(()=>({eligible:'Check the person at the desk, then record a new key handover.',approval:'Get the missing approval. Do not issue the key yet.',hold:'Verify the missing requirement, then evaluate again.',blocked:'Resolve the blocking condition before trying again.'})[decision.value.status]);
+      const lastMovement=computed(()=>!form.previousReturned ? 'Checkout still open' : activity.value[0]?.title === 'Key returned — custody closed' ? 'Returned (simulated)' : 'Returned Fri, 30 Oct');
+      const gates=computed(()=>gateConfig.map(g=>{
+        const rows=g.groups.map(group=>{
+          const xs=group.ids.map(id=>decision.value.rules.find(r=>r.id===id)).filter(Boolean);
+          const state=xs.some(x=>x.state==='fail')?'fail':xs.every(x=>x.state==='skip')?'skip':'pass';
+          return {label:group.label,state};
+        });
+        const failed=rows.some(r=>r.state==='fail');
+        const first=decision.value.rules.find(r=>g.groups.some(gr=>gr.ids.includes(r.id)) && r.state==='fail');
+        return {...g,rows,failed,note:first?first.detail:''};
+      }));
+      const exceptions=computed(()=>scenarios.slice(1).map(s=>({...s,outcome:evaluateAccess({...base,...s.changes}).status})));
+      const tests=computed(()=>scenarios.map(s=>{const actual=evaluateAccess({...base,...s.changes}).status;return {...s,actual,pass:actual===s.expected};}));
+      const testPasses=computed(()=>tests.value.filter(t=>t.pass).length);
+      const diffSummary=computed(()=>{
+        const d=decision.value;if(selectedScenario.value==='T01')return '';if(selectedScenario.value==='CUSTOM')return briefOutcome(d.status);
+        const keys=Object.keys(activeScenario.value.changes||{});
+        return (keys.length?keys.map(key=>({approvalEnd:'Expiry moved to 31 Oct',approvalStatus:'Access is revoked',sitePolicy:'Per-visit approval required',sameArea:'Different area requested',permitRequired:'Work permit required',permitValid:'Permit missing',previousReturned:'Return not recorded',keyAvailable:'Key not available',protectedArea:'Protected area',protectedApproved:'Owner approval missing',approvalType:'Single-use authorisation',visitConsumed:'Already used'})[key]).filter(Boolean).join(' · '):'Original conditions')+' → '+briefOutcome(d.status);
+      });
+      function notify(m){toast.value=m;clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.value='',2800);}
+      function loadScenario(s){loading=true;Object.assign(form,base,s.changes);loading=false;selectedScenario.value=s.id;activity.value=seededActivity(s);}
+      function resetAll(){loadScenario(scenarios[0]);notify('Original case restored.');}
+      function addEvent(title,icon){activity.value.unshift({id:++eventId,title,icon,at:stamp()});}
+      function simulateIssue(){if(decision.value.status!=='eligible')return notify('This key cannot be issued.');
+        loading=true;form.previousReturned=false;form.keyAvailable=false;
+        // Consuming a visit is meaningful only for single-use approvals.
+        if(form.approvalType==='single')form.visitConsumed=true;
+        loading=false;selectedScenario.value='CUSTOM';addEvent('Key issued — new custody record','fa-solid fa-key');notify('Simulated key issue recorded.');}
+      function simulateReturn(){if(form.previousReturned)return notify('No open checkout.');
+        loading=true;form.previousReturned=true;form.keyAvailable=true;loading=false;selectedScenario.value='CUSTOM';addEvent('Key returned — custody closed','fa-solid fa-arrow-rotate-left');notify('Custody closed. The approval was not changed.');}
+      async function copyRule(){try{await navigator.clipboard.writeText(spec);notify('Engineering rule copied.');}catch(e){
+        const node=document.createElement('textarea');node.value=spec;node.style.position='fixed';node.style.left='-9999px';document.body.appendChild(node);node.select();const ok=document.execCommand('copy');node.remove();notify(ok?'Engineering rule copied.':'Copy unavailable. Select the rule text instead.');}}
+      function exportLog(){const payload={prototype:'Access Decision Lab',disclaimer:'Sample local data. Not an immutable audit log.',exportedAt:new Date().toISOString(),input:{...form},decision:decision.value,events:activity.value};
+        const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='key-reissue-sample.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('Sample history exported.');}
+      return {form,scenarios,selectedScenario,activeScenario,activity,toast,decision,headline,statusLabel,answerCopy,nextAction,lastMovement,gates,exceptions,tests,testPasses,ruleSpec:spec,diffSummary,shortDate,longDate,shortOutcome:briefOutcome,loadScenario,resetAll,simulateIssue,simulateReturn,copyRule,exportLog};
+    }
+  }).mount('#app');
+})();
+</script>
+</body>
+</html>
