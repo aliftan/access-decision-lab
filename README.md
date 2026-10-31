@@ -1,97 +1,83 @@
 # Access Decision Lab
 
-A single-page, independent product-rules prototype for the **substation key-reissue** question:
+An interactive product case study about **physical access decisions, key reissue, and testable business rules**.
 
-> A contractor has approval until 31 December. He returns his key on Friday and requests it again on Monday. Does he need another approval?
+**[Open the live application](https://aliftan.github.io/access-decision-lab/)**
 
-**Default decision:** No new approval is needed *if* the existing authorisation covers the new visit, the site permits reuse, any required safety clearances are valid, and the previous key checkout has been closed. The return closes **key custody**, not **access authorisation**.
+## The case
 
-The prototype demonstrates how to turn an ambiguous operational question into a clear decision, customer-policy assumptions, edge cases, acceptance tests, and a reusable engineering specification.
+A contractor is authorised to enter a substation until 31 December. He returns the key on Friday and asks for it again on Monday. Does he need another approval?
 
-## What is in the ZIP?
+**Not automatically.** A key return closes the previous custody record; it does not, by itself, revoke the access approval. The key can be issued again without a new access approval only if the original authorisation still covers the person, date, location, and work; site policy permits another visit; required clearances are valid; and the previous checkout has been closed. The next handover must be recorded separately.
 
-- `index.html` — complete application: Vue 3 (CDN), Tailwind CSS (CDN), Font Awesome (CDN), embedded CSS, sample data, decision engine, and test fixtures.
-- `README.md` — documentation.
+The app turns that answer into a decision model that can be examined, challenged, and translated into requirements for engineering.
 
-No build step, package manager, backend, or API key is needed. The **CDNs require internet access** when users open the deployed site.
+## Explore the app
 
-## Deploy on GitHub Pages
+The default case starts with a valid repeat visit. Select a scenario such as **Expired**, **Revoked**, **Per-visit site**, or **Permit missing** to see how the decision changes. Each result shows what action is required and which checks pass or fail.
 
-1. Create a public GitHub repository, for example `access-decision-lab`.
-2. Extract the ZIP and put `index.html` and `README.md` in the repository root.
-3. Commit and push to `main`.
-4. In the repository, open **Settings → Pages**.
-5. Under **Build and deployment**, select **Deploy from a branch**, then **main** and **/(root)**. Save.
-6. Open `https://YOUR-USERNAME.github.io/access-decision-lab/` when GitHub Pages publishes the site.
+The experience is organised around three checks:
 
-GitHub Pages serves the static files directly. This prototype uses **Tailwind's Play CDN** as requested; Tailwind recommends a precompiled stylesheet for a production application. For a portfolio demo, the zero-build approach is intentional.
+| Check | Question |
+| --- | --- |
+| **Access authority** | Is this person authorised for the requested site, area, work, and date? Can the approval be reused? |
+| **Operational clearance** | Has identity been verified, and are any protected-area approvals or work permits in place? |
+| **Key custody** | Is the previous checkout closed, and is the physical key available? |
 
-## How to walk through it
+The **When the answer changes** section compares alternative outcomes. **Copy the rule** copies `KEY-REISSUE-01`, a proposed engineering specification with decision rules, precedence, acceptance criteria, and assumptions to confirm with the customer.
 
-1. **The decision** — starts with the Friday–Monday case and explains why an existing approval may be reused.
-2. **Change one condition** — try `Expired`, `Revoked`, `Per-visit site`, `Permit missing`, `Key not returned`, and the other fixtures. The answer changes immediately.
-3. **Three checks** — access authority, operational clearance, and key custody. The gate lines are derived from the actual rule results; there is no arbitrary truncation.
-4. **When the answer changes** — the table is evaluated from the same decision function, not hard-coded output labels.
-5. **The rule to write down** — copy a reusable rule with definitions, checks, decisions, precedence, acceptance criteria, and assumptions to confirm with a customer.
-6. **Acceptance tests** — expand the tests section. All nine fixtures execute in the browser against the same engine as the main answer.
+For a closer look, expand **Advanced / edit the request** to change the inputs, simulate a key issue or return, and export sample activity history as JSON. The activity history is held in browser memory during the session; it is not a persistent audit log.
 
-The **Advanced / edit the request** panel allows arbitrary input changes and optional simulated checkout/return events. Those events are local sample data, not a secure audit log. Exporting them produces a local JSON file.
+## Decision outcomes
 
-## Decision model
+| Outcome | Meaning |
+| --- | --- |
+| **Eligible** | The existing approval can be reused under the entered conditions. Record a separate key checkout. |
+| **New approval** | The approval has expired, the scope has changed, a single-use approval is consumed, or a site-specific approval is required. |
+| **Hold** | A prerequisite such as identity verification or a required permit is unresolved. Do not release the key yet. |
+| **Blocked** | Access is inactive or revoked, the previous checkout is still open, or the key is unavailable. |
 
-The logic lives in the `evaluateAccess(s)` function within `index.html`, separate from the Vue presentation code.
+When conditions conflict, the displayed outcome follows **Blocked > Hold > New approval > Eligible**. The engine retains all failed checks so the highest-priority outcome does not hide other problems.
 
-| Gate | What is checked |
-|---|---|
-| **Access authority** | Active contractor; not-revoked authorisation; approved dates, area and work; reusability; per-visit site policy |
-| **Operational clearance** | Identity verified; protected-area approval if needed; permit-to-work if needed |
-| **Key custody** | Previous checkout closed; physical key available |
+## Acceptance tests
 
-Outcomes:
+The app runs these nine fixtures against the same decision engine used by the interactive case:
 
-- **Eligible** — no new access approval is required; a *new, separately recorded key checkout* may proceed.
-- **New approval** — approval expired, scope differs, a consumed single-use approval is offered, or site policy requires a per-visit approval.
-- **Hold** — unresolved identity, invalid date input, or missing required work permit/verification.
-- **Blocked** — access inactive or revoked, previous key checkout open, or physical key unavailable.
-
-When multiple problems exist, status priority is **Blocked > Hold > New approval > Eligible**, but every failing rule is preserved in the decision result.
-
-### Tests included in the app
-
-| Test | Scenario | Expected |
-|---|---|---|
-| T01 | Valid repeat visit after Friday return | Eligible |
-| T02 | Approval expired before Monday | New approval |
-| T03 | Access explicitly revoked | Blocked |
-| T04 | Site approves each visit | New approval |
+| ID | Scenario | Expected result |
+| --- | --- | --- |
+| T01 | Valid repeat visit, key returned | Eligible |
+| T02 | Approval expired | New approval |
+| T03 | Access revoked | Blocked |
+| T04 | Site requires approval for each visit | New approval |
 | T05 | Different access area | New approval |
-| T06 | Permit-to-work missing | Hold |
-| T07 | Previous checkout not closed | Blocked |
-| T08 | Protected area owner approval missing | New approval |
-| T09 | Single-use authorisation already consumed | New approval |
+| T06 | Required work permit missing | Hold |
+| T07 | Previous checkout still open | Blocked |
+| T08 | Protected-area approval missing | New approval |
+| T09 | Single-use approval already used | New approval |
 
-The engine was also checked independently against additional cases for missing identity, missing contractor, invalid date ranges, unavailable keys, and conflicting failures.
+You can view the results in the **Acceptance tests** section of the page.
 
-## Important design decisions
+## Implementation
 
-- The **answer comes first**, ahead of configuration and technical details.
-- The sample request is presented as a **case ticket**, not a wall of switches.
-- **Scenario chips** expose counterfactuals immediately; full inputs are hidden in the advanced panel.
-- **Returning a key does not change the authorisation**. Issuing a key creates a new custody movement. A single-use visit is only marked consumed when the approval type is single-use.
-- The primary artifact is **a rule someone can implement**, not an analytics dashboard.
-- UI visual direction is **informed by the concise, high-contrast editorial language and blue portierX product imagery** in public portier material. This is **not an official portier design system**, and this project does not use official portier trademarks or pretend to be their product.
+The application is intentionally lightweight and can be hosted as static files on GitHub Pages.
 
-## Limits
+- **`index.html`** contains the interface, sample scenarios, deterministic `evaluateAccess()` rules engine, acceptance fixtures, and browser interactions.
+- **`README.md`** documents the problem, decisions, and how to use the prototype.
 
-This is a **case-study simulation**, not an access-control product. It does not talk to locks, verify human identity, validate real permits, persist records to a tamper-evident audit log, or enforce a customer's actual security policy. Real issue/reissue actions must use verified source records, configured site policies, authorisation from the responsible owners, and a secure auditable backend.
+It uses **Vue 3**, **Tailwind CSS**, and **Font Awesome** via CDNs, with custom CSS for the interface. There is no backend, build step, database, API key, or AI model involved in runtime access decisions. An internet connection is needed to load the CDN dependencies.
 
-The rule specification is a proposed default model; site-specific policies can override it. In particular, a date-valid approval **does not alone establish permission for another visit**.
+The prototype was developed with AI assistance, while the rules themselves remain explicit JavaScript that can be inspected and tested.
 
-## Technical note
+### Run locally
 
-- Vue 3 browser build from jsDelivr CDN
-- Tailwind Play CDN, with custom CSS tokens for the product-specific visual treatment
-- Font Awesome from cdnjs
-- Single `index.html`, no compile step, no persistence, no tracking, no AI inference at decision time
+Open `index.html` in a modern browser with an internet connection. No installation or build command is required.
 
-The prototype was developed with AI assistance, and the rule decisions remain explicit, inspectable JavaScript rather than generative model outputs.
+### Update the GitHub Pages site
+
+Replace `index.html` and `README.md` in the root of the `access-decision-lab` repository and commit the changes to the published branch. GitHub Pages serves the updated static files.
+
+## Scope and limitations
+
+Access Decision Lab is an **independent concept prototype**, not a portier product or a production access-control system. All people, approvals, keys, and activities shown are simulated. The app does not authenticate users, validate actual permits, connect to locks or access-control hardware, or create a secure, tamper-evident audit trail.
+
+Its decision rules are proposed defaults for discussing product behaviour. A real deployment would need verified records, site-specific policies, authorised decision-makers, and secure enforcement. In particular, an approval's expiry date alone is never enough to authorise another visit.
